@@ -5,6 +5,7 @@ import uiRouter from 'angular-ui-router';
 import { name as Navigation } from '../shared/navigation/navigation';
 import { name as Signup } from '../signup/signup';
 import { name as Login } from '../login/login';
+import { name as AddProject } from '../addProject/addProject';
 import { name as Home } from '../home/home';
 import { name as About } from '../about/about';
 
@@ -21,6 +22,7 @@ export default angular.module(name, [
   Navigation,
   Signup,
   Login,
+  AddProject,
   Home,
   About
 ])

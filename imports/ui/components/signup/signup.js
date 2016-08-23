@@ -2,6 +2,7 @@ import angular from 'angular';
 import angularMeteor from 'angular-meteor';
 import uiRouter from 'angular-ui-router';
 
+import { Meteor } from 'meteor/meteor';
 import { Accounts } from 'meteor/accounts-base';
 
 import template from './signup.html';
@@ -32,6 +33,18 @@ class Signup {
         }
       })
     );
+  }
+
+  githubSignup() {
+    Meteor.loginWithGithub({
+      requestPermissions: ['user', 'public_repo']
+    }, this.$bindToContext((err) => {
+      if (err){
+        this.error = err;
+      } else {
+        this.$state.go('home');
+      }
+    }));
   }
 }
 

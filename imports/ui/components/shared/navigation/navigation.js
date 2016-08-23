@@ -13,12 +13,27 @@ class Navigation {
  
     $reactive(this).attach($scope);
 
-    this.loggedIn = Meteor.userId();
+    this.subscribe('users');
+
+    this.helpers({
+      isLoggedIn() {
+        return !!Meteor.userId();
+      },
+      currentUser() {
+        return Meteor.user();
+      },
+      isUser() {
+        if(Meteor.user() && Meteor.user().role === 'user') {
+          return Meteor.user().role;
+        }
+      }
+    });
   }
 
   logout() {
-    Meteor.logout();
-    this.$state.go('login');
+    Meteor.logout(this.$bindToContext(() => {
+      this.$state.go('login');
+    }));
   }
 }
 

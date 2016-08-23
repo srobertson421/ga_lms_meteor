@@ -33,6 +33,18 @@ class Login {
       })
     );
   }
+
+  githubLogin() {
+    Meteor.loginWithGithub({
+      requestPermissions: ['user', 'public_repo']
+    }, this.$bindToContext((err) => {
+      if (err){
+        this.error = err;
+      } else {
+        this.$state.go('home');
+      }
+    }));
+  }
 }
 
 const name = 'login';

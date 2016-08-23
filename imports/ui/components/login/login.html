@@ -1,12 +1,26 @@
-<h1>Login</h1>
-<div ng-show="login.error" class="alert alert-warning" role="alert">
-  <strong>{{login.error}}</strong>
-</div>
-<form name="loginForm">
-  <div class="form-group">
-    <input type="email" class="form-control" ng-model="login.credentials.email" placeholder="Email" required>
-    <input type="password" class="form-control" ng-model="login.credentials.password" placeholder="Password" required>
-    <br>
-    <input ng-click="login.login()" ng-disabled="login.loginForm.$invalid()" type="button" class="btn btn-primary" value="Login">
+<div class="row">
+  <div class="col-md-10 col-md-offset-1">
+    <h1 class="text-xs-center">Login</h1>
   </div>
-</form>
+</div>
+<div class="row">
+  <div class="col-md-10 col-md-offset-1">
+    <div ng-show="login.error" class="alert alert-warning" role="alert">
+      <strong>{{login.error.reason}}</strong>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-10 col-md-offset-1">
+    <form name="loginForm">
+      <div class="form-group">
+        <input type="email" class="form-control" ng-model="login.credentials.email" placeholder="Email" required>
+        <input type="password" class="form-control" ng-model="login.credentials.password" placeholder="Password" required>
+        <br>
+        <input ng-click="login.login()" ng-disabled="login.loginForm.$invalid()" type="button" class="btn btn-primary" value="Login">
+      </div>
+    </form>
+    <h1 class="text-xs-center">Or With Github</h1>
+    <button ng-click="login.githubLogin()" class=" center-block btn btn-info">Github Login</button>
+  </div>
+</div>

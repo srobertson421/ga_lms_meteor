@@ -1,0 +1,19 @@
+<div class="row">
+  <div class="col-md-10 col-md-offset-1">
+    <h1 class="text-xs-center">Add Project</h1>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-10 col-md-offset-1">
+    <form name="addProjectForm">
+      <div class="form-group">
+        <input type="text" class="form-control" ng-model="addProject.project.title" placeholder="Project Title" required>
+        <input type="url" class="form-control" ng-model="addProject.project.github" placeholder="Github URL" required>
+        <input type="url" class="form-control" ng-model="addProject.project.deploy" placeholder="Deployed URL" required>
+        <textarea cols="5" rows="10" class="form-control" ng-model="addProject.project.description" placeholder="Project Description" required></textarea>
+        <br>
+        <input ng-click="addProject.submit()" ng-disabled="addProject.addProjectForm.$invalid()" type="button" class="btn btn-primary" value="Submit">
+      </div>
+    </form>
+  </div>
+</div>
