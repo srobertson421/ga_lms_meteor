@@ -3,21 +3,8 @@
     <h5 class="text-xs-center">Welcome <small class="text-muted">{{home.currentEmail}}</small></h5>
   </div>
 </div>
-<div class="row>">
-  <div ng-repeat="project in home.projects" class="col-md-6">
-    <div class="well">
-      <div class="card">
-        <div class="card-header">
-          {{project.title}}
-        </div>
-        <div class="card-block">
-          <p>{{project.description}}</p>
-          <div class="btn-group" role="group" aria-label="Link Buttons">
-            <a href="{{project.github}}" target="_blank"><button type="button" class="btn btn-primary">Github</button></a>
-            <a href="{{project.deploy}}" target="_blank"><button type="button" class="btn btn-success">Deployment</button></a>
-          </div>
-        </div>
-      </div>
-    </div>
+<div class="row">
+  <div class="col-xs-12" style="padding: 0;">
+    <calendar></calendar>
   </div>
 </div>

@@ -4,6 +4,8 @@ import uiRouter from 'angular-ui-router';
 import { Meteor } from 'meteor/meteor';
 
 import { Projects } from '../../../api/projects';
+import { name as Calendar } from '../calendar/calendar';
+import { name as GoogleCalendar } from '../googleCalendar/googleCalendar';
 
 import template from './home.html';
 
@@ -13,12 +15,7 @@ class Home {
 
     $reactive(this).attach($scope);
 
-    this.subscribe('user.projects');
-
     this.helpers({
-      projects() {
-        return Projects.find({ownerId: Meteor.userId()});
-      },
 
       currentUser() {
         return Meteor.user();
@@ -44,7 +41,7 @@ class Home {
 
 const name = 'home';
 
-export default angular.module(name, [angularMeteor, uiRouter])
+export default angular.module(name, [angularMeteor, uiRouter, Calendar, GoogleCalendar])
 .component(name, {
   template,
   controllerAs: name,
