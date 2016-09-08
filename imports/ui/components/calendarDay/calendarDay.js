@@ -10,6 +10,10 @@ class CalendarDay {
     $reactive(this).attach($scope);
 
   }
+
+  showDay() {
+    console.log('clicked day');
+  }
 }
 
 const name = 'calendarDay';
