@@ -1,4 +1,10 @@
 /* CSS declarations go here */
+body {
+  overflow-y: scroll;
+  min-height: 1000px;
+  background: url('/bg.png');
+}
+
 .nav ul {
   list-style: none;
   padding: 0;

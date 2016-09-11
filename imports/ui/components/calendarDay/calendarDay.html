@@ -1,1 +1,8 @@
-<div ng-click="calendarDay.showDay()">{{calendarDay.data.format('D')}}</div>
+<div ng-if="!calendarDay.isToday" ng-click="calendarDay.updateDay()">
+  <div>{{calendarDay.day.format('D')}}</div>
+  <div class="event-icon" ng-repeat="event in calendarDay.events"></div>
+</div>
+<div ng-if="calendarDay.isToday" style="color:red;" ng-click="calendarDay.updateDay()">
+  <div>{{calendarDay.day.format('D')}}</div>
+  <div class="event-icon" ng-repeat="event in calendarDay.events"></div>
+</div>

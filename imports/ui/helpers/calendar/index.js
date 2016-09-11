@@ -70,4 +70,14 @@ export default class CalendarHelper {
 
     return daysCalendar;
   }
+
+  getHalfHours(day) {
+    var newDay = moment(day).startOf('day');
+    halfHours = [];
+    for(var i = 0; i < 48; i++) {
+      newDay.add(30, 'm');
+      halfHours.push(moment(newDay));
+    }
+    return halfHours;
+  }
 }

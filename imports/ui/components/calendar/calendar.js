@@ -5,6 +5,7 @@ import CalendarHelper from '../../helpers/calendar';
 const calHelper = new CalendarHelper();
 
 import { name as CalendarDay } from '../calendarDay/calendarDay';
+import { name as CalendarDayView } from '../calendarDayView/calendarDayView';
 
 import { name as PrintedMonthFilter } from '../../filters/printedMonthFilter';
 import { name as PrintedYearFilter } from '../../filters/printedYearFilter';
@@ -19,6 +20,7 @@ class Calendar {
 
     this.year = moment().year();
     this.month = moment().month();
+    this.currentDay = moment();
     this.calendar = calHelper.getCalendar(this.year, this.month);
 
     this.helpers({});
@@ -45,11 +47,19 @@ class Calendar {
 
     this.calendar = calHelper.getCalendar(this.year, this.month);
   }
+
+  showDay(data) {
+    this.currentDay = data;
+  }
+
+  isSelectedDay(day) {
+    return day.format('LL') === this.currentDay.format('LL');
+  }
 }
 
 const name = 'calendar';
 
-export default angular.module(name, [angularMeteor, CalendarDay, PrintedMonthFilter, PrintedYearFilter])
+export default angular.module(name, [angularMeteor, CalendarDay, CalendarDayView, PrintedMonthFilter, PrintedYearFilter])
 .component(name, {
   template,
   controllerAs: name,

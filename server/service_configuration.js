@@ -5,7 +5,7 @@ ServiceConfiguration.configurations.upsert(
   {
     $set: {
       clientId: "b968d6114e012354620d",
-      loginStyle: "popup",
+      loginStyle: "redirect",
       secret: "87d28ce9ee6e357d978e8ad68440c001d7ddc425"
     }
   }

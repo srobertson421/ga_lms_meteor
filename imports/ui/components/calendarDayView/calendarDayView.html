@@ -1,0 +1,34 @@
+<div class="text-xs-center" style="margin-bottom: 15px;">
+  <h5 class="text-xs-center">{{calendarDayView.day.format('LL')}}</h5>
+  <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#newEventCollapse" aria-expanded="false" aria-controls="newEventCollapse">
+    New Event
+  </button>
+</div>
+<div class="collapse" id="newEventCollapse">
+  <div class="card card-block">
+    <form>
+      <h6>New Event</h6>
+      <div class="form-group">
+        <label>Name</label>
+        <input type="text" class="form-control" ng-model="calendarDayView.event.name">
+      </div>
+      <div class="form-group">
+        <label>Time</label>
+        <select type="time" class="form-control" ng-model="calendarDayView.event.time">
+          <option ng-repeat="halfHour in calendarDayView.halfHours track by $index" value="{{halfHour.format('LT')}}"> {{halfHour.format('LT')}}</option>
+        </select>
+      </div>
+      <input type="button" class="btn btn-primary" ng-click="calendarDayView.submitEvent()" value="Submit">
+    </form>
+  </div>
+</div>
+<ul class="list-group" id="accordion" role="tablist" aria-multiselectable="true">
+  <li ng-repeat="event in calendarDayView.events" class="list-group-item" data-toggle="collapse" data-parent="#accordion" href="#{{event._id}}" aria-expanded="true" aria-controls="{{event._id}}" style="cursor:pointer;">
+    <p>{{event.time}} - {{event.name}}</p>
+    <div class="panel-collapse collapse" role="tabpanel" id="{{event._id}}">
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam porta mi lorem, vitae hendrerit augue eleifend vel. Mauris gravida mi maximus dolor hendrerit, et dictum leo dapibus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Proin et erat pellentesque nunc euismod porttitor a ac ligula. Suspendisse non libero efficitur, venenatis sapien eu, interdum enim. Vivamus interdum lacinia accumsan. Etiam efficitur eros convallis mauris auctor, eu interdum ipsum pretium. Integer semper nibh velit, id sollicitudin mi rhoncus non.
+      </p>
+    </div>
+  </li>
+</ul>

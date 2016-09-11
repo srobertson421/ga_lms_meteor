@@ -1,0 +1,19 @@
+.event-icon {
+  padding: 0;
+  margin: 0;
+  height: 5px;
+  width: 5px;
+  border-radius: 10px;
+  background-color: #d9534f;
+  display: inline-block;
+}
+
+.bg-danger .event-icon {
+  padding: 0;
+  margin: 0;
+  height: 5px;
+  width: 5px;
+  border-radius: 10px;
+  background-color: #ffffff;
+  display: inline-block;
+}
